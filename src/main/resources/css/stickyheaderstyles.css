@@ -1,0 +1,35 @@
+:root {   
+    --bbj-app-layout-header-collapse-height: 45px;
+}
+
+.bbj-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--bbj-space-m);
+    padding: 0 var(--bbj-space-m);
+}
+
+.headerTitle{
+    display: block;
+    font-size: 1.25em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.headerContent{
+    display: flex;
+    align-items: center;
+    gap: var(--bbj-space-m);
+    padding: 0 var(--bbj-space-m);
+}
+
+.headerContent img{
+    height: 24px;
+}
+
+.contentDisplayTabs::part(nav-container) {
+    display: none;
+}

@@ -1,0 +1,39 @@
+body,html {overflow: hidden}
+
+:root {   
+    --bbj-app-layout-header-collapse-height: 0px;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: var(--bbj-space-m);
+    padding: 0 var(--bbj-space-m);
+    background-color: var(--bbj-color-primary);
+    color: var(--bbj-color-on-primary-text);
+}
+
+.headerContent img{
+    height: 24px;
+}
+
+.headerTitle{
+    display: block;
+    font-size: 1.25em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+
+.contentDisplayTabs::part(nav-container) {
+    display: none;
+}
+
+@media (max-width: 600px) {  
+    bbj-tab::part(title) { 
+        display: none;
+    }    
+}

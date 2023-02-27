@@ -1,0 +1,85 @@
+use org.dwcj.Environment
+
+use ::admin.bbj::Admin
+use ::admin.bbj::UserCredentials
+
+SETESC EscTrap
+SETERR ErrTrap
+
+BBJAPI().getConfig().releaseOnLostConnection(0)
+
+class$=""
+
+if class$="" then
+    class$=argv(1,err=*next)
+fi
+
+if class$="" then
+    class$=STBL("DWCJCLASSNAME",err=*next)
+fi
+
+if class$="" then
+    class$=clientenv("class",err=*next)
+fi
+
+if class$="" then
+    class$="org.dwcj.util.WelcomeApp"
+    gosub determineClasspathEntries
+fi
+
+h! = new ::DwcjHelper.bbj::DwcjHelper() 
+Environment.init(BBjAPI(), h!)
+
+app! = eval("new "+class$+"()")
+
+process_events,err=ErrTrap
+
+terminate:
+    release
+    
+
+
+determineClasspathEntries:
+        admin! = new Admin()
+        userCredentials! = admin!.getUserCredentials()
+        if (userCredentials! <> null()) then
+            Api! = BBjAdminFactory.getBBjAdmin(userCredentials!.getUser(),userCredentials!.getPassword())
+        endif
+        if (Api! = null()) then
+            a=msgbox( "Could not access application server")
+            release
+        endif
+        cp$ = BBjAPI().getConfig().getCurrentCommandLineObject().getOriginalClasspathName()
+        cp! = Api!.getClasspath(cp$)
+        
+        al! = new java.util.ArrayList()
+        it!=cp!.iterator()
+        while it!.hasNext()
+            c$ = it!.next()
+            if c$(1,1)="(" or pos("lib/dwcj-" =c$)>0 then
+                continue
+            fi
+            al!.add(c$)
+        wend
+        
+        BBjAPI().getObjectTable().put("dwcjcp",al!)
+return
+
+
+EscTrap:
+    IF AND(CHR(TCB(19)),$08$)=$08$ THEN
+        System.out.println("Client Died")
+    ELSE
+        System.out.println("ESCAPE")
+    FI
+    if app! <> null() then
+        app!.cleanup()
+    fi
+RELEASE
+
+ErrTrap:
+    System.out.println("Error Caught: "+str(err)+" "+errmes(-1))
+    if app! <> null() then
+        app!.cleanup()
+    fi
+RELEASE
