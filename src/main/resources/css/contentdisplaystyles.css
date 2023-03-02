@@ -1,5 +1,8 @@
-body,html {overflow: hidden}
+body,
+html {
+  overflow: hidden
+}
 
 .content__display--tabs::part(nav-container) {
-    display: none;
+  display: none;
 }
