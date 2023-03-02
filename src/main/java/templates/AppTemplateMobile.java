@@ -1,4 +1,4 @@
-package org.dwcj.templates;
+package templates;
 
 import java.util.ArrayList;
 import java.util.AbstractMap.SimpleEntry;
@@ -10,12 +10,6 @@ import org.dwcj.controls.label.Label;
 import org.dwcj.controls.panels.Div;
 import org.dwcj.controls.tabcontrol.TabControl;
 import org.dwcj.util.Assets;
-
-@AppMeta(name = "width", content = "device-width")
-@AppMeta(name = "initial-scale", content = "1.0")
-@AppMeta(name = "viewport", content = "fit=cover")
-@AppMeta(name = "user-scalable", content = "no")
-
 /**
  * AppTemplateMobile extends the AppTemplate and allows users to quickly
  * start developing an application with some preset information given to the 
@@ -31,9 +25,9 @@ public class AppTemplateMobile extends AppTemplate {
         
         /*Creates the header and adds the title and logo to it */
         this.setHeaderReveal(true);
-        Div headerDiv = new Div().add(this.logo, this.title).addClassName("headerContent");
+        Div headerDiv = new Div().add(this.logo, this.title).addClassName("header__content");
         this.getHeader().add(headerDiv);
-        this.title.addClassName("headerTitle");
+        this.title.addClassName("header__content--title");
 
         /*Creates the footer and adds the menu which will display the pages to it */
         this.setFooterReveal(true);

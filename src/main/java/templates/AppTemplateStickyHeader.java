@@ -1,4 +1,4 @@
-package org.dwcj.templates;
+package templates;
 
 import org.dwcj.App;
 import org.dwcj.controls.panels.Div;
@@ -24,9 +24,9 @@ public class AppTemplateStickyHeader extends AppTemplate {
         Div secondHeader = new Div();
 
         /*Adds a title and logo to the top of the header*/
-        Div headerDiv = new Div().add(this.logo, this.title).addClassName("headerContent");
+        Div headerDiv = new Div().add(this.logo, this.title).addClassName("header__content");
         this.getHeader().add(headerDiv);
-        title.addClassName("headerTitle");
+        title.addClassName("header__content--title");
         this.getHeader().add(secondHeader);
 
         /*Adds the tab control to the bar beneath the site header */

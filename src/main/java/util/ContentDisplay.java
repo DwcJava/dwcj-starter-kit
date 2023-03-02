@@ -15,6 +15,8 @@ public class ContentDisplay extends Div {
 
     @Override
     protected void create(AbstractDwcjPanel p) {
+        App.addInlineStyleSheet(Assets.contentOf("css/contentdisplaystyles.css"));
+
         super.create(p);
         this.add(this.panels);
         this.panels.addClassName("contentDisplayTabs");

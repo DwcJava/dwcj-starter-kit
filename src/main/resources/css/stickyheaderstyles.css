@@ -9,7 +9,7 @@
     padding: 0 var(--bbj-space-m);
 }
 
-.headerTitle{
+.header__content--title{
     display: block;
     font-size: 1.25em;
     margin-top: 0.83em;
@@ -19,17 +19,13 @@
     font-weight: bold;
 }
 
-.headerContent{
+.header__content{
     display: flex;
     align-items: center;
     gap: var(--bbj-space-m);
     padding: 0 var(--bbj-space-m);
 }
 
-.headerContent img{
+.header__content img{
     height: 24px;
-}
-
-.contentDisplayTabs::part(nav-container) {
-    display: none;
 }

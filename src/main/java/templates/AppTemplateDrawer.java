@@ -1,4 +1,4 @@
-package org.dwcj.templates;
+package templates;
 
 import java.util.ArrayList;
 
@@ -27,17 +27,17 @@ public class AppTemplateDrawer extends AppTemplate{
              
 
     public AppTemplateDrawer(){
-        App.addInlineStyleSheet(Assets.contentOf("css/apptemplatestyles.css"));
+        App.addInlineStyleSheet(Assets.contentOf("css/apptemplatedrawerstyles.css"));
 
         /*Creates the App Layout's header, and adds the toggle icon and title to it */
          Div header = new Div();
          this.getHeader().add(header);
          header.add(this.drawerToggle, this.title);
-         header.addClassName("dwcj-toolbar");
-         this.title.addClassName("headerTitle");
+         header.addClassName("layout__header");
+         this.title.addClassName("layout__header--title");
 
          /*Creating and adding/styling the logo which is displayed in the drawer */
-         Div logoDiv = new Div().addClassName("logo");
+         Div logoDiv = new Div().addClassName("drawer__logo");
          this.getDrawer().add(logoDiv);
          logoDiv.add(logo);
 

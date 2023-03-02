@@ -1,4 +1,4 @@
-package org.dwcj.templates;
+package templates;
 
 import java.util.ArrayList;
 import java.util.AbstractMap.SimpleEntry;
@@ -8,14 +8,9 @@ import org.dwcj.controls.applayout.AppLayout;
 import org.dwcj.controls.label.Label;
 import org.dwcj.controls.panels.Div;
 import org.dwcj.controls.tabcontrol.TabControl;
-
 import util.ContentDisplay;
 
-
-@AppMeta(name = "width", content = "device-width")
-@AppMeta(name = "initial-scale", content = "1.0")
-@AppMeta(name = "viewport", content = "fit=cover")
-@AppMeta(name = "user-scalable", content = "no")
+@AppMeta(name = "viewport", content = "width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no")
 
 public abstract class AppTemplate extends AppLayout{
     /**
@@ -49,14 +44,14 @@ public abstract class AppTemplate extends AppLayout{
     public AppTemplate(){
 
         /*Sets up the initial attributes for the menu*/
-        this. menu.setAttribute("nobody","true");
-        this. menu.setAttribute("borderless","true");
+        this.menu.setAttribute("nobody","true");
+        this.menu.setAttribute("borderless","true");
         
         /*Sets the behavior to be executed when a tab within the drawer is clicked on. If a tab is
         * selected for the first time, the associated class will be initialized within the content
         * display section to implement lazy loading. 
         */
-        this. menu.onSelect((ev) -> {
+        this.menu.onSelect((ev) -> {
             int idx = ev.getIndex();
             if(displayList.get(idx).getValue().equals(Boolean.FALSE)){
                 contentDisplay.addPage(String.valueOf(idx), displayList.get(idx).getKey());
@@ -67,6 +62,7 @@ public abstract class AppTemplate extends AppLayout{
         
         /*Sets the content of the AppLayout to be the ContentDisplay object created to handle page displaying */
         this.setContent(this.contentDisplay);
+
     }
 
     /** 
@@ -203,4 +199,5 @@ public abstract class AppTemplate extends AppLayout{
         this.contentDisplay = content;
         return this;
     }
+
 }

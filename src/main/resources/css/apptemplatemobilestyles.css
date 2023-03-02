@@ -1,10 +1,8 @@
-body,html {overflow: hidden}
-
 :root {   
     --bbj-app-layout-header-collapse-height: 0px;
 }
 
-.headerContent {
+.header__content {
     display: flex;
     align-items: center;
     gap: var(--bbj-space-m);
@@ -13,11 +11,11 @@ body,html {overflow: hidden}
     color: var(--bbj-color-on-primary-text);
 }
 
-.headerContent img{
+.header__content img{
     height: 24px;
 }
 
-.headerTitle{
+.header__content--title{
     display: block;
     font-size: 1.25em;
     margin-top: 0.83em;
@@ -27,10 +25,6 @@ body,html {overflow: hidden}
     font-weight: bold;
 }
 
-
-.contentDisplayTabs::part(nav-container) {
-    display: none;
-}
 
 @media (max-width: 600px) {  
     bbj-tab::part(title) { 
