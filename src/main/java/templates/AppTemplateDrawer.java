@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.dwcj.App;
 import org.dwcj.annotations.AppMeta;
+import org.dwcj.annotations.InlineStyleSheet;
 import org.dwcj.controls.applayout.AppLayout;
 import org.dwcj.controls.label.Label;
 import org.dwcj.controls.panels.Div;
@@ -20,6 +21,7 @@ import java.util.AbstractMap.SimpleEntry;
  * the top.
  */
 
+@InlineStyleSheet("context://css/apptemplatedrawerstyles.css")
 public class AppTemplateDrawer extends AppTemplate {
 
   /** An icon which toggles the drawer to display or close */
@@ -27,7 +29,6 @@ public class AppTemplateDrawer extends AppTemplate {
       "<html><bbj-icon-button name='menu-2' data-drawer-toggle></bbj-icon-button></html>");
 
   public AppTemplateDrawer() {
-    App.addInlineStyleSheet(Assets.contentOf("css/apptemplatedrawerstyles.css"));
 
     /* Creates the App Layout's header, and adds the toggle icon and title to it */
     Div header = new Div();

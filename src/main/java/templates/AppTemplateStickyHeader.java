@@ -1,6 +1,7 @@
 package templates;
 
 import org.dwcj.App;
+import org.dwcj.annotations.InlineStyleSheet;
 import org.dwcj.controls.panels.Div;
 import org.dwcj.util.Assets;
 
@@ -17,10 +18,10 @@ import org.dwcj.util.Assets;
  * and entries for these programs will be added to the menu at the top.
  */
 
+@InlineStyleSheet("context://css/stickyheaderstyles.css")
 public class AppTemplateStickyHeader extends AppTemplate {
 
   public AppTemplateStickyHeader() {
-    App.addInlineStyleSheet(Assets.contentOf("css/stickyheaderstyles.css"));
 
     /*
      * Creates the header and adds an additional bar which will be used to display

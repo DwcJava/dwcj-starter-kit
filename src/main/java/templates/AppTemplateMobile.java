@@ -5,6 +5,7 @@ import java.util.AbstractMap.SimpleEntry;
 
 import org.dwcj.App;
 import org.dwcj.annotations.AppMeta;
+import org.dwcj.annotations.InlineStyleSheet;
 import org.dwcj.controls.applayout.AppLayout;
 import org.dwcj.controls.label.Label;
 import org.dwcj.controls.panels.Div;
@@ -18,11 +19,11 @@ import org.dwcj.util.Assets;
  * 
  * The template is configured with mobile display in mind, and
  */
+@InlineStyleSheet("css/apptemplatemobilestyles.css")
 public class AppTemplateMobile extends AppTemplate {
 
   public AppTemplateMobile() {
 
-    App.addInlineStyleSheet(Assets.contentOf("css/apptemplatemobilestyles.css"));
 
     /* Creates the header and adds the title and logo to it */
     this.setHeaderReveal(true);

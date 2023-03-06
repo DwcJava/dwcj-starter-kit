@@ -1,6 +1,8 @@
 package util;
 
-import org.dwcj.controls.panels.AbstractDwcjPanel;
+import org.dwcj.App;
+import org.dwcj.annotations.InlineStyleSheet;
+import org.dwcj.controls.panels.AbstractPanel;
 import org.dwcj.controls.panels.Div;
 import org.dwcj.controls.tabcontrol.TabControl;
 
@@ -10,14 +12,13 @@ import org.dwcj.controls.tabcontrol.TabControl;
  * and display within the various templates, and the TabControl component
  */
 
+@InlineStyleSheet("context://css/contentdisplaystyles.css")
 public class ContentDisplay extends Div {
-
+  
   TabControl panels = new TabControl();
-
+  
   @Override
-  protected void create(AbstractDwcjPanel p) {
-    App.addInlineStyleSheet(Assets.contentOf("css/contentdisplaystyles.css"));
-
+  protected void create(AbstractPanel p) {
     super.create(p);
     this.add(this.panels);
     this.panels.addClassName("contentDisplayTabs");
@@ -31,7 +32,7 @@ public class ContentDisplay extends Div {
    * @return The object itself
    */
   public ContentDisplay addPage(String title, Div page) {
-    this.panels.addTab(title, page);
+    this.panels.add(title, page);
     return this;
   }
 
@@ -43,7 +44,7 @@ public class ContentDisplay extends Div {
    * @return The object itself
    */
   public ContentDisplay removePage(int index) {
-    this.panels.removeTab(index);
+    this.panels.remove(index);
     return this;
   }
 
