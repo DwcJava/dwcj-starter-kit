@@ -25,6 +25,9 @@
   font-weight: bold;
 }
 
+.contentDisplayTabs::part(nav-container) {
+  display: none;
+}
 
 @media (max-width: 600px) {
   bbj-tab::part(title) {

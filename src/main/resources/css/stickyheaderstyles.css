@@ -29,3 +29,7 @@
 .header__content img {
   height: 24px;
 }
+
+.contentDisplayTabs::part(nav-container) {
+  display: none;
+}

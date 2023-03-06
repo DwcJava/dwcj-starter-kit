@@ -19,7 +19,7 @@ import org.dwcj.util.Assets;
  * 
  * The template is configured with mobile display in mind, and
  */
-@InlineStyleSheet("css/apptemplatemobilestyles.css")
+@InlineStyleSheet("context://css/apptemplatemobilestyles.css")
 public class AppTemplateMobile extends AppTemplate {
 
   public AppTemplateMobile() {
