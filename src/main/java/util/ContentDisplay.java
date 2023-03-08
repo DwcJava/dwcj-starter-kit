@@ -25,6 +25,18 @@ public class ContentDisplay extends Div {
   }
 
   /**
+   * Adds a title to the content display section to be associated with a
+   * page later on
+   * 
+   * @param title Title of the page
+   * @return The object itself
+   */
+  public ContentDisplay addEntry(String title) {
+    this.panels.add(title);
+    return this;
+  }
+
+  /**
    * Adds a page to the content section of an AppLayout class
    * 
    * @param title Title of the page
@@ -33,6 +45,17 @@ public class ContentDisplay extends Div {
    */
   public ContentDisplay addPage(String title, Div page) {
     this.panels.add(title, page);
+    return this;
+  }
+
+  /**
+   * Sets the content of an already existing tab with no associated panel
+   * @param idx Desired tab to have a panel attached
+   * @param page Desired panel to attach to the tab
+   * @return The object itself
+   */
+  public ContentDisplay setPage(int idx, Div page) {
+    this.panels.setPanelAt(idx, page);
     return this;
   }
 

@@ -3,6 +3,7 @@ package templates;
 import java.util.ArrayList;
 import java.util.AbstractMap.SimpleEntry;
 
+import org.dwcj.App;
 import org.dwcj.annotations.AppMeta;
 import org.dwcj.controls.applayout.AppLayout;
 import org.dwcj.controls.label.Label;
@@ -60,7 +61,7 @@ public abstract class AppTemplate extends AppLayout {
     this.menu.onSelect((ev) -> {
       int idx = ev.getIndex();
       if (displayList.get(idx).getValue().equals(Boolean.FALSE)) {
-        contentDisplay.addPage(String.valueOf(idx), displayList.get(idx).getKey());
+        contentDisplay.setPage(idx, displayList.get(idx).getKey());
         displayList.get(idx).setValue(Boolean.TRUE);
       }
       contentDisplay.displayPage(idx);
@@ -91,6 +92,7 @@ public abstract class AppTemplate extends AppLayout {
   public AppTemplate addPage(String title, Div page) {
 
     this.menu.add(title);
+    this.contentDisplay.addEntry(title);
     this.displayList.add(new SimpleEntry<>(page, false));
     return this;
   }
@@ -139,8 +141,8 @@ public abstract class AppTemplate extends AppLayout {
    * 
    * @return The title
    */
-  public Label getTitle() {
-    return this.title;
+  public String getTitle() {
+    return this.title.getText();
   }
 
   /**
@@ -177,8 +179,8 @@ public abstract class AppTemplate extends AppLayout {
    * @param title Desired title
    * @return The control itself
    */
-  public AppTemplate setTitle(Label title) {
-    this.title = title;
+  public AppTemplate setTitle(String title) {
+    this.title.setText(title);
     return this;
   }
 
