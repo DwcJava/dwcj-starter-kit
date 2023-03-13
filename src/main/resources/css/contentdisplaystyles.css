@@ -3,6 +3,6 @@ html {
   overflow: hidden
 }
 
-.content__display--tabs::part(nav-container) {
+.content__display--tabs > bbj-tab-list::part(nav-container) {
   display: none;
 }
